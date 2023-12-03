@@ -26,6 +26,6 @@ RUN pecl install redis-6.0.2 \
 # SETUP CUSTOM USER, CREATE AND ADD TO ROOT GROUP (to avoid HOST root user file ownership and while keeping root permissions in docker)
 # RUN useradd -s /bin/bash ${CUST_USER} -g root
 RUN useradd -m $CUST_USER && adduser $CUST_USER root
-
 # SET ACTIVE USER
 USER ${CUST_USER}
+RUN echo "Switched user to ${CUST_USER}"
